@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<style>
+@font-face { font-family: Quadaptor; src: url('font/quadaptor.ttf'); }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+    color: grey;
+}
+
+canvas {
+    margin: 0;
+}
+
+</style>
+</head>
+<body>
+<div id="fontload" style="font-family: Quadaptor;">...</div>
+<canvas id="canvas"></canvas>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/asimovian/www/hexagoncanvas/HexagonCanvas.js"></script>
+<script>
+var gHexagonCanvas = null;
+(function(){
+    'use strict';
+
+    $(document).ready(function() {
+        // delete the fontload element
+        $('#fontload').remove();
+
+        let canvas = document.getElementById('canvas');
+        canvas.width = document.body.clientWidth - 3;
+        canvas.height = document.body.clientHeight - 3;
+
+        gHexagonCanvas = new HexagonCanvas(canvas, 7);
+        gHexagonCanvas.draw();
+        console.log('Canvas ready');
+    });
+})();
+</script>
+</body>
+</html>
