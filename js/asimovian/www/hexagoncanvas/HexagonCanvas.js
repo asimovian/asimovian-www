@@ -1,5 +1,5 @@
 /**
- * Hastily drafted proof of concept
+ * Hastily drafted proof of ui concept
  * @copyright 2015 Asimovian LLC
  * @license MIT
  */

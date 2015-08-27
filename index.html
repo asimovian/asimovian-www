@@ -17,7 +17,6 @@ body {
 canvas {
     margin: 0;
 }
-
 </style>
 </head>
 <body>
@@ -34,13 +33,13 @@ var gHexagonCanvas = null;
         // delete the fontload element
         $('#fontload').remove();
 
-        let canvas = document.getElementById('canvas');
+        var canvas = document.getElementById('canvas');
         canvas.width = document.body.clientWidth - 3;
         canvas.height = document.body.clientHeight - 3;
 
         gHexagonCanvas = new HexagonCanvas(canvas, 7);
         gHexagonCanvas.draw();
-        console.log('Canvas ready');
+        console.log('Hexagonal canvas ready');
     });
 })();
 </script>
