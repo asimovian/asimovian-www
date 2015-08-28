@@ -98,8 +98,9 @@ HexagonCanvas.createHexagons = function(canvas, size) {
 HexagonCanvas.prototype.draw = function() {
     var context = this.canvas.getContext('2d');
 
+    //todo: this clears the entire canvas. only the affected boundry boxes should be cleared and redrawn.
+    //      event based redraws at the hexagon level may be the better option
     context.clearRect(0, 0, canvas.width, canvas.height);
-
 
     // for each hexagon
     for (let o = 0; o < this.hexagons.length; ++o) {
