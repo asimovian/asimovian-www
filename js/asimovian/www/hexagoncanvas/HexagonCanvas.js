@@ -105,7 +105,7 @@ HexagonCanvas.prototype.draw = function() {
 
     //todo: this clears the entire canvas. only the affected boundry boxes should be cleared and redrawn.
     //      event based redraws at the hexagon level may be the better option
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // for each hexagon
     for (let o = 0; o < this.hexagons.length; ++o) {
@@ -148,9 +148,9 @@ HexagonCanvas.prototype.draw = function() {
     context.font = '128px Quadaptor';
     context.fillStyle = 'yellow';
     var textmetrics = context.measureText('asimovian');
-    var x = ( canvas.width / 2 ) - ( textmetrics.width / 2 );
-    var y = ( canvas.height / 2 ) - ( (textmetrics.actualBoundingBoxDescent - textmetrics.actualBoundingBoxAscent) / 2 );
-    context.fillText('asimovian', x, (canvas.height / 2) - 56);
+    var x = ( this.canvas.width / 2 ) - ( textmetrics.width / 2 );
+    var y = ( this.canvas.height / 2 ) - ( (textmetrics.actualBoundingBoxDescent - textmetrics.actualBoundingBoxAscent) / 2 );
+    context.fillText('asimovian', x, (this.canvas.height / 2) - 56);
 };
 
 HexagonCanvas.prototype.onMouseMove = function(event) {
