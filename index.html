@@ -24,22 +24,26 @@ body {
 <body>
 <canvas id="canvas"></canvas>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="js/asimovian/www/hexagoncanvas/HexagonCanvas.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
 <script>
-var gHexagonCanvas = null;
-(function(){
-    'use strict';
+  WebFont.load({
+    custom: {
+      families: ['Quadaptor']
+    },
+    active: function() {
+        $(document).ready(function() {
+            var canvas = document.getElementById('canvas');
+            canvas.width = document.body.clientWidth;
+            canvas.height = document.body.clientHeight;
 
-    $(document).ready(function() {
-        var canvas = document.getElementById('canvas');
-        canvas.width = document.body.clientWidth;
-        canvas.height = document.body.clientHeight;
-
-        gHexagonCanvas = new HexagonCanvas(canvas, 30);
-        gHexagonCanvas.draw();
-        console.log('Hexagonal canvas ready');
-    });
-})();
+            gHexagonCanvas = new HexagonCanvas(canvas, 30);
+            gHexagonCanvas.draw();
+            console.log('Hexagonal canvas ready');
+        });
+    }
+  });
+</script>
+<script type="text/javascript" src="js/asimovian/www/hexagoncanvas/HexagonCanvas.js"></script>
 </script>
 </body>
 </html>
