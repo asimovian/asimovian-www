@@ -4,23 +4,24 @@
 <style>
 @font-face { font-family: Quadaptor; src: url('font/quadaptor.ttf'); }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html, body {
     height: 100%;
+    overflow: hidden;
 }
 
 body {
-    margin: 0;
     background-color: black;
     color: grey;
 }
 
-canvas {
-    margin: 0;
-}
 </style>
 </head>
 <body>
-<div id="fontload" style="font-family: Quadaptor;">...</div>
 <canvas id="canvas"></canvas>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/asimovian/www/hexagoncanvas/HexagonCanvas.js"></script>
@@ -30,14 +31,11 @@ var gHexagonCanvas = null;
     'use strict';
 
     $(document).ready(function() {
-        // delete the fontload element
-        $('#fontload').remove();
-
         var canvas = document.getElementById('canvas');
-        canvas.width = document.body.clientWidth - 3;
-        canvas.height = document.body.clientHeight - 3;
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
 
-        gHexagonCanvas = new HexagonCanvas(canvas, 7);
+        gHexagonCanvas = new HexagonCanvas(canvas, 30);
         gHexagonCanvas.draw();
         console.log('Hexagonal canvas ready');
     });

@@ -82,13 +82,19 @@ HexagonCanvas.createHexagons = function(canvas, size) {
     var hexagons = [];
     var yOffset = 0;
 
-    for (let x = size; x < canvas.width; x += 2*size) { //todo: initialize and increment correctly
+    for (let x = size; x < canvas.width; x += .5 * size + (2*size * Math.cos(2*Math.PI * 1/6))) { //todo: initialize and increment correctly
+            if (x + .5*size > canvas.width)
+                break; // don't draw clipped hexagons vertically
+
         // adjust yOffset to make hexagons overlap horizontally
-        yOffset = ( x === size || (x !== size && yOffset + size !== size) ? 0 : size + yOffset);
-        for (let y = size + yOffset; y < canvas.height; y += 2*size) { //todo: initialize and increment correctly
+        yOffset = ( x === size || (x !== size && yOffset + size !== size) ? 0 : size*Math.sin(2*Math.PI*1/6));
+        for (let y = size + yOffset; y < canvas.height; y += 2*size*Math.sin(2*Math.PI*1/6)) { //todo: initialize and increment correctly
+            if (y + .5*size > canvas.height)
+                break; // don't draw clipped hexagons vertically
             let centerXY = new XY(x, y);
             let hexagon = new Hexagon(size, centerXY);
             hexagons.push(hexagon);
+            //if (yOffset !== 0) return hexagons;
         }
     }
 
