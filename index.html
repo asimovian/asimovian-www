@@ -1,31 +1,17 @@
 <!doctype html>
+<!--
+ @copyright 2015 Asimovian LLC
+ @license MIT https://github.com/asimovian/www.asimovian.software/blob/master/LICENSE.txt
+-->
 <html>
 <head>
-<style>
-@font-face { font-family: Quadaptor; src: url('font/quadaptor.ttf'); }
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    height: 100%;
-    overflow: hidden;
-}
-
-body {
-    background-color: black;
-    color: grey;
-}
-
-</style>
-</head>
-<body>
-<canvas id="canvas"></canvas>
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+<script type="text/javascript" src="js/asimovian/www/hexagoncanvas/HexagonCanvas.js"></script>
 <script>
+  var gHexagonCanvas = null;
+
   WebFont.load({
     custom: {
       families: ['Quadaptor']
@@ -43,7 +29,9 @@ body {
     }
   });
 </script>
-<script type="text/javascript" src="js/asimovian/www/hexagoncanvas/HexagonCanvas.js"></script>
 </script>
+</head>
+<body>
+<canvas id="canvas"></canvas>
 </body>
 </html>

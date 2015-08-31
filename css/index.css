@@ -1,0 +1,24 @@
+/**
+ * @copyright 2015 Asimovian LLC
+ * @license MIT https://github.com/asimovian/www.asimovian.software/blob/master/LICENSE.txt
+ */
+
+@font-face {
+    font-family: Quadaptor;
+    src: url('../font/quadaptor.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: black;
+    color: grey;
+}

@@ -1,7 +1,6 @@
 /**
- * Hastily drafted proof of ui concept
  * @copyright 2015 Asimovian LLC
- * @license MIT
+ * @license MIT https://github.com/asimovian/www.asimovian.software/blob/master/LICENSE.txt
  */
 
 var HexagonCanvas = (function() {
