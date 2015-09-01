@@ -2,9 +2,9 @@
  * @copyright 2015 Asimovian LLC
  * @license MIT https://github.com/asimovian/www.asimovian.software/blob/master/LICENSE.txt
  */
+'use strict';
 
 var HexagonCanvas = (function() {
-    'use strict';
 
 var XY = function(x, y) {
     this.x = x;
@@ -74,7 +74,7 @@ let HexagonCanvas = function(canvas, size, options) {
 
     // add listeners to canvas to handle mouse motion
     var self = this;
-    canvas.addEventListener('mousemove', function() { self.onMouseMove(event); });
+    canvas.addEventListener('mousemove', function(event) { self.onMouseMove(event); });
 };
 
 HexagonCanvas.createHexagons = function(canvas, size) {

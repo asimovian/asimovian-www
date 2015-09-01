@@ -23,4 +23,6 @@ var gHexagonCanvas = (function() {
         });
     }
   });
+
+  return hexagonCanvas;
 })();
