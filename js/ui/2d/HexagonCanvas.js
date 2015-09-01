@@ -4,71 +4,7 @@
  */
 'use strict';
 
-var HexagonCanvas = (function() {
-
-var XY = function(x, y) {
-    this.x = x;
-    this.y = y;
-};
-
-var Rectangle = function(topLeftXY, bottomRightXY) {
-    this.topLeftXY = topLeftXY;
-    this.bottomRightXY = bottomRightXY;
-};
-
-Rectangle.prototype.contains = function(xy) {
-    return ( xy.x >= this.topLeftXY.x && xy.x <= this.bottomRightXY.x
-        && xy.y >= this.topLeftXY.y && xy.y <= this.bottomRightXY.y );
-};
-
-var Hexagon = function(size, centerXY) {
-    this.size = size;
-    this.centerXY = centerXY;
-    this.vertices = Hexagon.calcVertices(size, centerXY);
-    this.boundaryRectangle = Hexagon.calcBoundaryRectangle(size, centerXY);
-    this.fillStyle = null;
-};
-
-Hexagon.calcVertices = function(size, centerXY) {
-    var vertices = [];
-
-    let vertex = new XY(
-        centerXY.x +  size * Math.cos(0),
-        centerXY.y +  size *  Math.sin(0) );
-
-    vertices.push(vertex);
-
-    for (let i = 1; i <= 6; ++i) {
-        let vertex = new XY(
-            centerXY.x + size * Math.cos(2*Math.PI * i / 6),
-            centerXY.y + size * Math.sin(2*Math.PI * i / 6) );
-
-         vertices.push(vertex);
-    }
-
-    return vertices;
-};
-
-Hexagon.calcBoundaryRectangle = function(size, centerXY) {
-    var topLeftXY = new XY(centerXY.x - size, centerXY.y - size);
-    var bottomRightXY = new XY(centerXY.x + size, centerXY.y + size);;
-    return new Rectangle(topLeftXY, bottomRightXY);
-};
-
-Hexagon.prototype.getFillStyle = function() {
-    return this.fillStyle;
-};
-
-Hexagon.prototype.setFillStyle = function(fillStyle) {
-    this.fillStyle = fillStyle;
-};
-
-Hexagon.prototype.contains = function(xy) {
-    //todo: check polygon boundries if within boundary rectangle
-    return this.boundaryRectangle.contains(xy);
-};
-
-let HexagonCanvas = function(canvas, size, options) {
+var HexagonCanvas = function(canvas, size, options) {
     this.canvas = canvas;
     this.hexagons = HexagonCanvas.createHexagons(canvas, size);
 
@@ -91,9 +27,8 @@ HexagonCanvas.createHexagons = function(canvas, size) {
             if (y + .5*size > canvas.height)
                 break; // don't draw clipped hexagons vertically
             let centerXY = new XY(x, y);
-            let hexagon = new Hexagon(size, centerXY);
+            let hexagon = new Hexagon(Hexagon.calcVertices(size, centerXY), size, centerXY);
             hexagons.push(hexagon);
-            //if (yOffset !== 0) return hexagons;
         }
     }
 
@@ -144,13 +79,6 @@ HexagonCanvas.prototype.draw = function() {
         context.stroke();
     }
 
-    // draw the asimovian text
-    context.font = '128px Quadaptor';
-    context.fillStyle = 'yellow';
-    var textmetrics = context.measureText('asimovian');
-    var x = ( this.canvas.width / 2 ) - ( textmetrics.width / 2 );
-    var y = ( this.canvas.height / 2 ) - ( (textmetrics.actualBoundingBoxDescent - textmetrics.actualBoundingBoxAscent) / 2 );
-    context.fillText('asimovian', x, (this.canvas.height / 2) - 56);
 };
 
 HexagonCanvas.prototype.onMouseMove = function(event) {
