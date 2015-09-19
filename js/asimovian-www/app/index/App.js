@@ -25,7 +25,7 @@ var Index = function() {
 Index.prototype = PlurObject.create('asimovian-www/app/index/App', Index, Application);
 
 /**
- * @function plur/app/Application.prototype.start
+ * @function asimovian-www/app/index/App.prototype.start
  */
 Index.prototype.start = function() {
     console.log('It\'s happening!!');
