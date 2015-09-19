@@ -13,7 +13,7 @@ function(
 /**
  * Application for www.asimovian.software website.
  *
- * @constructor asimovian-www/app/Index
+ * @constructor asimovian-www/app/index/App
  **
  */
 var Index = function() {
@@ -22,6 +22,7 @@ var Index = function() {
 Index.prototype = PlurObject.create('asimovian-www/app/Index', Index);
 
 Index.prototype.start = function() {
+    // hello world 4chan style
     console.log('It\'s happening!!');
 };
 
