@@ -28,7 +28,6 @@ Index.prototype = PlurObject.create('asimovian-www/app/Index', Index, Applicatio
  * @function plur/app/Application.prototype.start
  */
 Index.prototype.start = function() {
-    // hello world 4chan style
     console.log('It\'s happening!!');
 };
 
