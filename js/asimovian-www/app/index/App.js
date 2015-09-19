@@ -22,7 +22,7 @@ function(
 var Index = function() {
 };
 
-Index.prototype = PlurObject.create('asimovian-www/app/Index', Index, Application);
+Index.prototype = PlurObject.create('asimovian-www/app/index/App', Index, Application);
 
 /**
  * @function plur/app/Application.prototype.start
