@@ -12,9 +12,9 @@ plurbootstrap.require([
 function(
     WebBootstrap ) {
 
-WebBootstrap.init(plurbootstrap);
-WebBootstrap.get().addPaths({'asimovian-www': 'asimovian-www/js/asimovian-www'});
-
-plurbootstrap.require(['asimovian-www/app/index/App'], function(IndexApp) { new IndexApp().start(); });
-
+WebBootstrap.init(plurbootstrap)
+    .addPaths({'asimovian-www': 'asimovian-www/js/asimovian-www'})
+    .require([ 'asimovian-www/app/index/App' ], function(IndexApp) {
+        new IndexApp().start();
+    });
 });
