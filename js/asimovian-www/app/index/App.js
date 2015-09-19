@@ -6,21 +6,27 @@
  'use strict';
 
 define([
-    'plur/PlurObject' ],
+    'plur/PlurObject',
+    'plur/app/Application' ],
 function(
-    PlurObject ) {
+    PlurObject,
+    Application ) {
 
 /**
  * Application for www.asimovian.software website.
  *
  * @constructor asimovian-www/app/index/App
+ * @extends plur/app/Application
  **
  */
 var Index = function() {
 };
 
-Index.prototype = PlurObject.create('asimovian-www/app/Index', Index);
+Index.prototype = PlurObject.create('asimovian-www/app/Index', Index, Application);
 
+/**
+ * @function plur/app/Application.prototype.start
+ */
 Index.prototype.start = function() {
     // hello world 4chan style
     console.log('It\'s happening!!');
