@@ -1,2 +1,1 @@
-# www.asimovian.software
-Public website
+olde website stuff
